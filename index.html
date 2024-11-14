@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title> University - Free Bootstrap 4 Template by sonu </title>
+    <title>Fox University - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -25,6 +25,15 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <style>
+        .row-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        body {
+            /* overflow: hidden; */
+        }
+
         body,
         ul {
             margin: 0;
@@ -222,11 +231,96 @@
                 transform: translate3d(-100%, 0, 0);
             }
         }
-        .tab-content > .tab-pane {
+
+        .tab-content>.tab-pane {
             display: none;
         }
-        .tab-content > .active {
+
+        .tab-content>.active {
             display: block;
+        }
+
+        .youtub-carousel-container {
+            display: flex;
+            overflow: hidden;
+            width: 90%;
+            margin: auto;
+            scroll-snap-type: x mandatory;
+            gap: 10px;
+            position: relative;
+        }
+
+        .youtub-video-slide {
+            flex: 0 0 30%;
+            /* Default to show 2-3 videos */
+            scroll-snap-align: start;
+        }
+
+        .youtub-iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        .youtub-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .youtub-view-all {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 16px;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .youtub-carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .youtub-dot {
+            height: 10px;
+            width: 10px;
+            margin: 0 5px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .youtub-dot.active {
+            background-color: #000;
+        }
+
+        .youtub-button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .youtub-button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .youtub-video-slide {
+                flex: 0 0 100%;
+                /* Show only one video at a time on smaller screens */
+            }
+
+            .youtub-iframe {
+                height: 200px;
+                /* Adjust height for smaller screens */
+            }
         }
     </style>
 
@@ -234,7 +328,10 @@
         function toggleCustomMenu() {
             document.querySelector('.custom-nav').classList.toggle('active');
         }
+
+
     </script>
+
 </head>
 
 <body>
@@ -320,7 +417,7 @@
             </nav>
         </div>
         <div class="custom-bsn-logo">
-            <img src="images/logo(1).png" alt="BSN Infotech Logo">
+            <img src="images/logo (1).png" alt="BSN Infotech Logo">
         </div>
     </header>
 
@@ -485,6 +582,52 @@
         </div>
     </section>
 
+    <section class="ftco-section  ftc-no-pb">
+
+        <div class="youtub-header">
+            <h1>Our YouTube Gallery</h1>
+            <h3>Unlocking Knowledge, One Video at a Time!</h3>
+        </div>
+
+        <div class="youtub-carousel-container" id="youtub-carousel">
+            <div class="youtub-video-slide">
+                <iframe class="youtub-iframe" src="https://www.youtube.com/embed/VIDEO_ID1" allowfullscreen></iframe>
+            </div>
+            <div class="youtub-video-slide">
+                <iframe class="youtub-iframe" src="https://www.youtube.com/embed/VIDEO_ID2" allowfullscreen></iframe>
+            </div>
+            <div class="youtub-video-slide">
+                <iframe class="youtub-iframe" src="https://www.youtube.com/embed/VIDEO_ID3" allowfullscreen></iframe>
+            </div>
+            <div class="youtub-video-slide">
+                <iframe class="youtub-iframe" src="https://www.youtube.com/embed/VIDEO_ID4" allowfullscreen></iframe>
+            </div>
+            <div class="youtub-video-slide">
+                <iframe class="youtub-iframe" src="https://www.youtube.com/embed/VIDEO_ID4" allowfullscreen></iframe>
+            </div>
+            <div class="youtub-video-slide">
+                <iframe class="youtub-iframe" src="https://www.youtube.com/embed/VIDEO_ID4" allowfullscreen></iframe>
+            </div>
+            <div class="youtub-video-slide">
+                <iframe class="youtub-iframe" src="https://www.youtube.com/embed/VIDEO_ID4" allowfullscreen></iframe>
+            </div>
+            <div class="youtub-video-slide">
+                <iframe class="youtub-iframe" src="https://www.youtube.com/embed/VIDEO_ID4" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="youtub-carousel-dots" id="youtub-dots">
+            <span class="youtub-dot" onclick="showSlide(0)"></span>
+            <span class="youtub-dot" onclick="showSlide(1)"></span>
+            <span class="youtub-dot" onclick="showSlide(2)"></span>
+            <span class="youtub-dot" onclick="showSlide(3)"></span>
+        </div>
+
+        <a href="#" class="youtub-view-all">View All Videos</a>
+
+
+    </section>
+
 
     <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_3.jpg);"
         data-stellar-background-ratio="0.5">
@@ -502,14 +645,15 @@
                     </div>
                 </div>
                 <div class="col-md-6 heading-section heading-section-white ftco-animate pl-lg-5 pt-md-0 pt-5">
-                    <h2 class="mb-4"> University</h2>
-                    <p>Separated they live in. A small river named Duden flows by their place and supplies it with the
-                        necessary regelialia. It is a paradisematic country. A small river named Duden flows by their
-                        place and supplies it with the necessary
-                        regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your
-                        mouth.</p>
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It
-                        is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                    <h2 class="mb-4">About Our Company</h2>
+                    <p>VidyaBridge, an innovative e-learning platform by BSN Infotech Private Limited, is dedicated to
+                        enhancing the employability of India’s youth through practical and accessible education. We
+                        offer a wide variety of courses in Accounting, Finance, Personality Development, English and
+                        other Foreign Language Proficiency, as well as IT Skills, effectively bridging the gap between
+                        academic theory and real-world applications. Focusing on hands-on experiences through
+                        internships, training, and projects, our platform provides affordable and impactful online
+                        education that empowers individuals to be job-ready and thrive in today's competitive job
+                        market.</p>
                 </div>
             </div>
             <div class="row d-md-flex align-items-center justify-content-center">
@@ -519,8 +663,8 @@
                             <div class="block-18">
                                 <div class="icon"><span class="flaticon-doctor"></span></div>
                                 <div class="text">
-                                    <strong class="number" data-number="18">0</strong>
-                                    <span>Certified Teachers</span>
+                                    <strong class="number" data-number="20">0</strong>
+                                    <span>Years of Experience</span>
                                 </div>
                             </div>
                         </div>
@@ -528,8 +672,8 @@
                             <div class="block-18">
                                 <div class="icon"><span class="flaticon-doctor"></span></div>
                                 <div class="text">
-                                    <strong class="number" data-number="401">0</strong>
-                                    <span>Students</span>
+                                    <strong class="number" data-number="600">0</strong>
+                                    <span>Software Project Completed</span>
                                 </div>
                             </div>
                         </div>
@@ -537,8 +681,8 @@
                             <div class="block-18">
                                 <div class="icon"><span class="flaticon-doctor"></span></div>
                                 <div class="text">
-                                    <strong class="number" data-number="30">0</strong>
-                                    <span>Courses</span>
+                                    <strong class="number" data-number="1500">0</strong>
+                                    <span>Happy Clients</span>
                                 </div>
                             </div>
                         </div>
@@ -546,8 +690,8 @@
                             <div class="block-18">
                                 <div class="icon"><span class="flaticon-doctor"></span></div>
                                 <div class="text">
-                                    <strong class="number" data-number="50">0</strong>
-                                    <span>Awards Won</span>
+                                    <strong class="number" data-number="17000+">0</strong>
+                                    <span>Employment provided by Company</span>
                                 </div>
                             </div>
                         </div>
@@ -561,274 +705,365 @@
         <!-- Tabs Navigation -->
         <ul class="nav nav-tabs tab-courses-nav" id="courseTabs" role="tablist">
             <li class="nav-item tab-courses-item" role="presentation">
-                <button class="nav-link active" id="tab-A" data-bs-toggle="tab" data-bs-target="#content-A" type="button" role="tab">A</button>
+                <button class="nav-link active" id="tab-A" data-bs-toggle="tab" data-bs-target="#content-A"
+                    type="button" role="tab">Finance & Accounting</button>
             </li>
             <li class="nav-item tab-courses-item" role="presentation">
-                <button class="nav-link" id="tab-B" data-bs-toggle="tab" data-bs-target="#content-B" type="button" role="tab">B</button>
+                <button class="nav-link" id="tab-B" data-bs-toggle="tab" data-bs-target="#content-B" type="button"
+                    role="tab">Personality Development Courses</button>
             </li>
             <li class="nav-item tab-courses-item" role="presentation">
-                <button class="nav-link" id="tab-C" data-bs-toggle="tab" data-bs-target="#content-C" type="button" role="tab">C</button>
+                <button class="nav-link" id="tab-C" data-bs-toggle="tab" data-bs-target="#content-C" type="button"
+                    role="tab">English & Other Foreign Languages</button>
             </li>
             <li class="nav-item tab-courses-item" role="presentation">
-                <button class="nav-link" id="tab-D" data-bs-toggle="tab" data-bs-target="#content-D" type="button" role="tab">D</button>
+                <button class="nav-link" id="tab-D" data-bs-toggle="tab" data-bs-target="#content-D" type="button"
+                    role="tab">Professional IT Courses
+                </button>
+            </li>
+            <li class="nav-item tab-courses-item" role="presentation">
+                <button class="nav-link" id="tab-D" data-bs-toggle="tab" data-bs-target="#content-D" type="button"
+                    role="tab">Digital Literacy
+                </button>
             </li>
         </ul>
-    
+
         <!-- Tabs Content -->
         <div class="tab-content mt-4" id="courseTabsContent">
             <!-- Tab A Content -->
             <div class="tab-pane fade show active" id="content-A" role="tabpanel">
-                
-            <div class="row">
-                <div class="col-md-3 course ftco-animate">
-                    <div class="img" style="background-image: url(images/course-1.jpg);"></div>
-                    <div class="text pt-4">
-                        <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
-                            <span><i class="icon-table mr-2"></i>10 seats</span>
-                            <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                        </p>
-                        <h3><a href="#">Electric Engineering</a></h3>
-                        <p>Separated they live in. A small river named Duden flows by their place and supplies it with
-                            the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
+
+                <div class="row">
+                    <div class="col-md-3 course ftco-animate">
+                        <div class="img" style="background-image: url(images/course-1.jpg);"></div>
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>sonu</span>
+                                <span><i class="icon-table mr-2"></i>10 seats</span>
+                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
+                            </p>
+                            <h3><a href="#">Electric Engineering</a></h3>
+                            <p>Separated they live in. A small river named Duden flows by their place and supplies it
+                                with
+                                the necessary regelialia. It is a paradisematic country</p>
+                            <div class="row-buttons">
+
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 course ftco-animate">
-                    <div class="img" style="background-image: url(images/course-2.jpg);"></div>
-                    <div class="text pt-4">
-                        <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
-                            <span><i class="icon-table mr-2"></i>10 seats</span>
-                            <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                        </p>
-                        <h3><a href="#">Electric Engineering</a></h3>
-                        <p>Separated they live in. A small river named Duden flows by their place and supplies it with
-                            the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                    <div class="col-md-3 course ftco-animate">
+                        <div class="img" style="background-image: url(images/course-2.jpg);"></div>
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>sonu</span>
+                                <span><i class="icon-table mr-2"></i>10 seats</span>
+                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
+                            </p>
+                            <h3><a href="#">Electric Engineering</a></h3>
+                            <p>Separated they live in. A small river named Duden flows by their place and supplies it
+                                with
+                                the necessary regelialia. It is a paradisematic country</p>
+                            <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 course ftco-animate">
-                    <div class="img" style="background-image: url(images/course-3.jpg);"></div>
-                    <div class="text pt-4">
-                        <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
-                            <span><i class="icon-table mr-2"></i>10 seats</span>
-                            <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                        </p>
-                        <h3><a href="#">Electric Engineering</a></h3>
-                        <p>Separated they live in. A small river named Duden flows by their place and supplies it with
-                            the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                    <div class="col-md-3 course ftco-animate">
+                        <div class="img" style="background-image: url(images/course-3.jpg);"></div>
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>sonu</span>
+                                <span><i class="icon-table mr-2"></i>10 seats</span>
+                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
+                            </p>
+                            <h3><a href="#">Electric Engineering</a></h3>
+                            <p>Separated they live in. A small river named Duden flows by their place and supplies it
+                                with
+                                the necessary regelialia. It is a paradisematic country</p>
+                            <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 course ftco-animate">
-                    <div class="img" style="background-image: url(images/course-4.jpg);"></div>
-                    <div class="text pt-4">
-                        <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
-                            <span><i class="icon-table mr-2"></i>10 seats</span>
-                            <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                        </p>
-                        <h3><a href="#">Electric Engineering</a></h3>
-                        <p>Separated they live in. A small river named Duden flows by their place and supplies it with
-                            the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                    <div class="col-md-3 course ftco-animate">
+                        <div class="img" style="background-image: url(images/course-4.jpg);"></div>
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>sonu</span>
+                                <span><i class="icon-table mr-2"></i>10 seats</span>
+                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
+                            </p>
+                            <h3><a href="#">Electric Engineering</a></h3>
+                            <p>Separated they live in. A small river named Duden flows by their place and supplies it
+                                with
+                                the necessary regelialia. It is a paradisematic country</p>
+                            <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            </div>
-    
+
             <!-- Tab B Content -->
             <div class="tab-pane fade" id="content-B" role="tabpanel">
                 <!-- Similar content structure for Tab B -->
-                 
-            <div class="row">
-                <div class="col-md-3 course ftco-animate">
-                    <div class="img" style="background-image: url(images/course-1.jpg);"></div>
-                    <div class="text pt-4">
-                        <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
-                            <span><i class="icon-table mr-2"></i>10 seats</span>
-                            <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                        </p>
-                        <h3><a href="#">Electric Engineering</a></h3>
-                        <p>Separated they live in. A small river named Duden flows by their place and supplies it with
-                            the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
+
+                <div class="row">
+                    <div class="col-md-3 course ftco-animate">
+                        <div class="img" style="background-image: url(images/course-1.jpg);"></div>
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>sonu</span>
+                                <span><i class="icon-table mr-2"></i>10 seats</span>
+                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
+                            </p>
+                            <h3><a href="#">Electric Engineering</a></h3>
+                            <p>Separated they live in. A small river named Duden flows by their place and supplies it
+                                with
+                                the necessary regelialia. It is a paradisematic country</p>
+                            <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 course ftco-animate">
-                    <div class="img" style="background-image: url(images/course-2.jpg);"></div>
-                    <div class="text pt-4">
-                        <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
-                            <span><i class="icon-table mr-2"></i>10 seats</span>
-                            <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                        </p>
-                        <h3><a href="#">Electric Engineering</a></h3>
-                        <p>Separated they live in. A small river named Duden flows by their place and supplies it with
-                            the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                    <div class="col-md-3 course ftco-animate">
+                        <div class="img" style="background-image: url(images/course-2.jpg);"></div>
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>sonu</span>
+                                <span><i class="icon-table mr-2"></i>10 seats</span>
+                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
+                            </p>
+                            <h3><a href="#">Electric Engineering</a></h3>
+                            <p>Separated they live in. A small river named Duden flows by their place and supplies it
+                                with
+                                the necessary regelialia. It is a paradisematic country</p>
+                            <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 course ftco-animate">
-                    <div class="img" style="background-image: url(images/course-3.jpg);"></div>
-                    <div class="text pt-4">
-                        <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
-                            <span><i class="icon-table mr-2"></i>10 seats</span>
-                            <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                        </p>
-                        <h3><a href="#">Electric Engineering</a></h3>
-                        <p>Separated they live in. A small river named Duden flows by their place and supplies it with
-                            the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                    <div class="col-md-3 course ftco-animate">
+                        <div class="img" style="background-image: url(images/course-3.jpg);"></div>
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>sonu</span>
+                                <span><i class="icon-table mr-2"></i>10 seats</span>
+                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
+                            </p>
+                            <h3><a href="#">Electric Engineering</a></h3>
+                            <p>Separated they live in. A small river named Duden flows by their place and supplies it
+                                with
+                                the necessary regelialia. It is a paradisematic country</p>
+                            <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 course ftco-animate">
-                    <div class="img" style="background-image: url(images/course-4.jpg);"></div>
-                    <div class="text pt-4">
-                        <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
-                            <span><i class="icon-table mr-2"></i>10 seats</span>
-                            <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                        </p>
-                        <h3><a href="#">Electric Engineering</a></h3>
-                        <p>Separated they live in. A small river named Duden flows by their place and supplies it with
-                            the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                    <div class="col-md-3 course ftco-animate">
+                        <div class="img" style="background-image: url(images/course-4.jpg);"></div>
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>sonu</span>
+                                <span><i class="icon-table mr-2"></i>10 seats</span>
+                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
+                            </p>
+                            <h3><a href="#">Electric Engineering</a></h3>
+                            <p>Separated they live in. A small river named Duden flows by their place and supplies it
+                                with
+                                the necessary regelialia. It is a paradisematic country</p>
+                            <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            </div>
-    
+
             <!-- Tab C Content -->
             <div class="tab-pane fade" id="content-C" role="tabpanel">
                 <!-- Similar content structure for Tab C -->
-                 
-            <div class="row">
-                <div class="col-md-3 course ftco-animate">
-                    <div class="img" style="background-image: url(images/course-1.jpg);"></div>
-                    <div class="text pt-4">
-                        <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
-                            <span><i class="icon-table mr-2"></i>10 seats</span>
-                            <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                        </p>
-                        <h3><a href="#">Electric Engineering</a></h3>
-                        <p>Separated they live in. A small river named Duden flows by their place and supplies it with
-                            the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
+
+                <div class="row">
+                    <div class="col-md-3 course ftco-animate">
+                        <div class="img" style="background-image: url(images/course-1.jpg);"></div>
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>sonu</span>
+                                <span><i class="icon-table mr-2"></i>10 seats</span>
+                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
+                            </p>
+                            <h3><a href="#">Electric Engineering</a></h3>
+                            <p>Separated they live in. A small river named Duden flows by their place and supplies it
+                                with
+                                the necessary regelialia. It is a paradisematic country</p>
+                            <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 course ftco-animate">
-                    <div class="img" style="background-image: url(images/course-2.jpg);"></div>
-                    <div class="text pt-4">
-                        <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
-                            <span><i class="icon-table mr-2"></i>10 seats</span>
-                            <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                        </p>
-                        <h3><a href="#">Electric Engineering</a></h3>
-                        <p>Separated they live in. A small river named Duden flows by their place and supplies it with
-                            the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                    <div class="col-md-3 course ftco-animate">
+                        <div class="img" style="background-image: url(images/course-2.jpg);"></div>
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>sonu</span>
+                                <span><i class="icon-table mr-2"></i>10 seats</span>
+                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
+                            </p>
+                            <h3><a href="#">Electric Engineering</a></h3>
+                            <p>Separated they live in. A small river named Duden flows by their place and supplies it
+                                with
+                                the necessary regelialia. It is a paradisematic country</p>
+                            <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 course ftco-animate">
-                    <div class="img" style="background-image: url(images/course-3.jpg);"></div>
-                    <div class="text pt-4">
-                        <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
-                            <span><i class="icon-table mr-2"></i>10 seats</span>
-                            <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                        </p>
-                        <h3><a href="#">Electric Engineering</a></h3>
-                        <p>Separated they live in. A small river named Duden flows by their place and supplies it with
-                            the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                    <div class="col-md-3 course ftco-animate">
+                        <div class="img" style="background-image: url(images/course-3.jpg);"></div>
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>sonu</span>
+                                <span><i class="icon-table mr-2"></i>10 seats</span>
+                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
+                            </p>
+                            <h3><a href="#">Electric Engineering</a></h3>
+                            <p>Separated they live in. A small river named Duden flows by their place and supplies it
+                                with
+                                the necessary regelialia. It is a paradisematic country</p>
+                            <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 course ftco-animate">
-                    <div class="img" style="background-image: url(images/course-4.jpg);"></div>
-                    <div class="text pt-4">
-                        <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
-                            <span><i class="icon-table mr-2"></i>10 seats</span>
-                            <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                        </p>
-                        <h3><a href="#">Electric Engineering</a></h3>
-                        <p>Separated they live in. A small river named Duden flows by their place and supplies it with
-                            the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                    <div class="col-md-3 course ftco-animate">
+                        <div class="img" style="background-image: url(images/course-4.jpg);"></div>
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>sonu</span>
+                                <span><i class="icon-table mr-2"></i>10 seats</span>
+                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
+                            </p>
+                            <h3><a href="#">Electric Engineering</a></h3>
+                            <p>Separated they live in. A small river named Duden flows by their place and supplies it
+                                with
+                                the necessary regelialia. It is a paradisematic country</p>
+                            <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            </div>
-    
+
             <!-- Tab D Content -->
             <div class="tab-pane fade" id="content-D" role="tabpanel">
                 <!-- Similar content structure for Tab D -->
-                 
-            <div class="row">
-                <div class="col-md-3 course ftco-animate">
-                    <div class="img" style="background-image: url(images/course-1.jpg);"></div>
-                    <div class="text pt-4">
-                        <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
-                            <span><i class="icon-table mr-2"></i>10 seats</span>
-                            <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                        </p>
-                        <h3><a href="#">Electric Engineering</a></h3>
-                        <p>Separated they live in. A small river named Duden flows by their place and supplies it with
-                            the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
+
+                <div class="row">
+                    <div class="col-md-3 course ftco-animate">
+                        <div class="img" style="background-image: url(images/course-1.jpg);"></div>
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>sonu</span>
+                                <span><i class="icon-table mr-2"></i>10 seats</span>
+                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
+                            </p>
+                            <h3><a href="#">Electric Engineering</a></h3>
+                            <p>Separated they live in. A small river named Duden flows by their place and supplies it
+                                with
+                                the necessary regelialia. It is a paradisematic country</p>
+                            <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 course ftco-animate">
+                        <div class="img" style="background-image: url(images/course-2.jpg);"></div>
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>sonu</span>
+                                <span><i class="icon-table mr-2"></i>10 seats</span>
+                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
+                            </p>
+                            <h3><a href="#">Electric Engineering</a></h3>
+                            <p>Separated they live in. A small river named Duden flows by their place and supplies it
+                                with
+                                the necessary regelialia. It is a paradisematic country</p>
+                            <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 course ftco-animate">
+                        <div class="img" style="background-image: url(images/course-3.jpg);"></div>
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>sonu</span>
+                                <span><i class="icon-table mr-2"></i>10 seats</span>
+                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
+                            </p>
+                            <h3><a href="#">Electric Engineering</a></h3>
+                            <p>Separated they live in. A small river named Duden flows by their place and supplies it
+                                with
+                                the necessary regelialia. It is a paradisematic country</p>
+                            <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 course ftco-animate">
+                        <div class="img" style="background-image: url(images/course-4.jpg);"></div>
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user mr-2"></i>sonu</span>
+                                <span><i class="icon-table mr-2"></i>10 seats</span>
+                                <span><i class="icon-calendar mr-2"></i>4 Years</span>
+                            </p>
+                            <h3><a href="#">Electric Engineering</a></h3>
+                            <p>Separated they live in. A small river named Duden flows by their place and supplies it
+                                with
+                                the necessary regelialia. It is a paradisematic country</p>
+                            <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-3 course ftco-animate">
-                    <div class="img" style="background-image: url(images/course-2.jpg);"></div>
-                    <div class="text pt-4">
-                        <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
-                            <span><i class="icon-table mr-2"></i>10 seats</span>
-                            <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                        </p>
-                        <h3><a href="#">Electric Engineering</a></h3>
-                        <p>Separated they live in. A small river named Duden flows by their place and supplies it with
-                            the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
-                    </div>
-                </div>
-                <div class="col-md-3 course ftco-animate">
-                    <div class="img" style="background-image: url(images/course-3.jpg);"></div>
-                    <div class="text pt-4">
-                        <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
-                            <span><i class="icon-table mr-2"></i>10 seats</span>
-                            <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                        </p>
-                        <h3><a href="#">Electric Engineering</a></h3>
-                        <p>Separated they live in. A small river named Duden flows by their place and supplies it with
-                            the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
-                    </div>
-                </div>
-                <div class="col-md-3 course ftco-animate">
-                    <div class="img" style="background-image: url(images/course-4.jpg);"></div>
-                    <div class="text pt-4">
-                        <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
-                            <span><i class="icon-table mr-2"></i>10 seats</span>
-                            <span><i class="icon-calendar mr-2"></i>4 Years</span>
-                        </p>
-                        <h3><a href="#">Electric Engineering</a></h3>
-                        <p>Separated they live in. A small river named Duden flows by their place and supplies it with
-                            the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
-                    </div>
-                </div>
-            </div>
             </div>
         </div>
     </div>
@@ -851,56 +1086,72 @@
                     <div class="img" style="background-image: url(images/course-1.jpg);"></div>
                     <div class="text pt-4">
                         <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
+                            <span><i class="icon-user mr-2"></i>sonu</span>
                             <span><i class="icon-table mr-2"></i>10 seats</span>
                             <span><i class="icon-calendar mr-2"></i>4 Years</span>
                         </p>
                         <h3><a href="#">Electric Engineering</a></h3>
                         <p>Separated they live in. A small river named Duden flows by their place and supplies it with
                             the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                        <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
                     </div>
                 </div>
                 <div class="col-md-3 course ftco-animate">
                     <div class="img" style="background-image: url(images/course-2.jpg);"></div>
                     <div class="text pt-4">
                         <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
+                            <span><i class="icon-user mr-2"></i>sonu</span>
                             <span><i class="icon-table mr-2"></i>10 seats</span>
                             <span><i class="icon-calendar mr-2"></i>4 Years</span>
                         </p>
                         <h3><a href="#">Electric Engineering</a></h3>
                         <p>Separated they live in. A small river named Duden flows by their place and supplies it with
                             the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                        <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
                     </div>
                 </div>
                 <div class="col-md-3 course ftco-animate">
                     <div class="img" style="background-image: url(images/course-3.jpg);"></div>
                     <div class="text pt-4">
                         <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
+                            <span><i class="icon-user mr-2"></i>sonu</span>
                             <span><i class="icon-table mr-2"></i>10 seats</span>
                             <span><i class="icon-calendar mr-2"></i>4 Years</span>
                         </p>
                         <h3><a href="#">Electric Engineering</a></h3>
                         <p>Separated they live in. A small river named Duden flows by their place and supplies it with
                             the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                        <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
                     </div>
                 </div>
                 <div class="col-md-3 course ftco-animate">
                     <div class="img" style="background-image: url(images/course-4.jpg);"></div>
                     <div class="text pt-4">
                         <p class="meta d-flex">
-                            <span><i class="icon-user mr-2"></i>Mr. Khan</span>
+                            <span><i class="icon-user mr-2"></i>sonu</span>
                             <span><i class="icon-table mr-2"></i>10 seats</span>
                             <span><i class="icon-calendar mr-2"></i>4 Years</span>
                         </p>
                         <h3><a href="#">Electric Engineering</a></h3>
                         <p>Separated they live in. A small river named Duden flows by their place and supplies it with
                             the necessary regelialia. It is a paradisematic country</p>
-                        <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                        <div class="row-buttons">
+
+                                <p><a href="#" class="btn btn-primary">Apply now</a></p>
+                                <p><a href="#" class="btn btn-primary">Apply nowe</a></p>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -1082,13 +1333,12 @@
                             <div class="meta-date text-center p-2">
                                 <span class="day">26</span>
                                 <span class="mos">June</span>
-                                <span class="yr">2019</span>
+                                <span class="yr">2024</span>
                             </div>
                         </a>
                         <div class="text bg-white p-4">
-                            <h3 class="heading"><a href="#">Skills To Develop Your Child Memory</a></h3>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                there live the blind texts.</p>
+                            <h3 class="heading"><a href="#">Tech Innovations</a></h3>
+                            <p>Explore the latest in tech innovations, gadgets, and software trends.</p>
                             <div class="d-flex align-items-center mt-4">
                                 <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span
                                             class="ion-ios-arrow-round-forward"></span></a></p>
@@ -1107,13 +1357,12 @@
                             <div class="meta-date text-center p-2">
                                 <span class="day">26</span>
                                 <span class="mos">June</span>
-                                <span class="yr">2019</span>
+                                <span class="yr">2024</span>
                             </div>
                         </a>
                         <div class="text bg-white p-4">
-                            <h3 class="heading"><a href="#">Skills To Develop Your Child Memory</a></h3>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                there live the blind texts.</p>
+                            <h3 class="heading"><a href="#">AI and Machine Learning</a></h3>
+                            <p>Delve into the world of artificial intelligence and its real-world applications.</p>
                             <div class="d-flex align-items-center mt-4">
                                 <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span
                                             class="ion-ios-arrow-round-forward"></span></a></p>
@@ -1132,13 +1381,12 @@
                             <div class="meta-date text-center p-2">
                                 <span class="day">26</span>
                                 <span class="mos">June</span>
-                                <span class="yr">2019</span>
+                                <span class="yr">2024</span>
                             </div>
                         </a>
                         <div class="text bg-white p-4">
-                            <h3 class="heading"><a href="#">Skills To Develop Your Child Memory</a></h3>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                                there live the blind texts.</p>
+                            <h3 class="heading"><a href="#">Blockchain and FinTech</a></h3>
+                            <p>Learn about blockchain, cryptocurrencies, and the evolving FinTech landscape.</p>
                             <div class="d-flex align-items-center mt-4">
                                 <p class="mb-0"><a href="#" class="btn btn-primary">Read More <span
                                             class="ion-ios-arrow-round-forward"></span></a></p>
@@ -1177,7 +1425,7 @@
                                     <p>Far far away, behind the word mountains, far from the countries Vokalia and
                                         Consonantia, there live the blind texts.</p>
                                     <p class="name">Racky Henderson</p>
-                                    <span class="position">Father</span>
+                                    <span class="position">Student</span>
                                 </div>
                             </div>
                         </div>
@@ -1192,56 +1440,106 @@
                                     <p>Far far away, behind the word mountains, far from the countries Vokalia and
                                         Consonantia, there live the blind texts.</p>
                                     <p class="name">Henry Dee</p>
-                                    <span class="position">Mother</span>
+                                    <span class="position">Student</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="testimony-wrap d-flex">
-                                <div class="user-img mr-4" style="background-image: url(images/teacher-3.jpg)">
+                                <div class="user-img mr-4" style="background-image: url(images/Prashant.jpeg)">
                                 </div>
                                 <div class="text ml-2">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts.</p>
-                                    <p class="name">Mark Huff</p>
-                                    <span class="position">Mother</span>
+                                    <p>F"I completed my internship in finance and accounting with Vidya Bridge, and it
+                                        was an incredibly valuable experience. The hands-on training, combined with a
+                                        supportive learning environment, helped me build essential skills. I left the
+                                        program feeling more confident and prepared for my future career. I highly
+                                        recommend this internship to anyone looking to gain real-world experience in
+                                        finance and accounting!"</p>
+                                    <p class="name">Prashant</p>
+                                    <span class="position">Student</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="testimony-wrap d-flex">
-                                <div class="user-img mr-4" style="background-image: url(images/teacher-4.jpg)">
+                                <div class="user-img mr-4" style="background-image: url(images/Mahi\ M..jpeg)">
                                 </div>
                                 <div class="text ml-2">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts.</p>
-                                    <p class="name">Rodel Golez</p>
-                                    <span class="position">Mother</span>
+                                    <p>"I struggled with spoken English for years, but the course at Vidya Bridge
+                                        changed everything. The interactive sessions and practice with native speakers
+                                        made learning enjoyable and effective. I can now express myself clearly and
+                                        confidently!"</p>
+                                    <p class="name">Mahi M.</p>
+                                    <span class="position">Student</span>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
                             <div class="testimony-wrap d-flex">
-                                <div class="user-img mr-4" style="background-image: url(images/teacher-1.jpg)">
+                                <div class="user-img mr-4" style="background-image: url(images/Vaishnavi\ S..jpeg)">
                                 </div>
                                 <div class="text ml-2">
                                     <span class="quote d-flex align-items-center justify-content-center">
                                         <i class="icon-quote-left"></i>
                                     </span>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia, there live the blind texts.</p>
-                                    <p class="name">Ken Bosh</p>
-                                    <span class="position">Mother</span>
+                                    <p>"The Personality Development course at Vidya Bridge helped me build my confidence
+                                        and improve my interpersonal skills. The workshops on body language and
+                                        communication were eye-opening! I now feel more self-assured in both
+                                        professional and social settings."</p>
+                                    <p class="name">Vaishnavi S.</p>
+                                    <span class="position">Student</span>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- <section class="ftco-section ftco-no-pt ftc-no-pb">
+        <div class="container">
+            <div class="row d-flex">
+                <div class="col-md-5 order-md-last wrap-about wrap-about d-flex align-items-stretch">
+                    <div class="img" style="background-image: url(images/about.jpg); border"></div>
+                </div>
+                <div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
+                    <h2 class="mb-4">About Our Company</h2>
+                    <p>VidyaBridge, an innovative e-learning platform by BSN Infotech Private Limited, is dedicated to
+                        enhancing the employability of India’s youth through practical and accessible education. We
+                        offer a wide variety of courses in Accounting, Finance, Personality Development, English and
+                        other Foreign Language Proficiency, as well as IT Skills, effectively bridging the gap between
+                        academic theory and real-world applications. Focusing on hands-on experiences through
+                        internships, training, and projects, our platform provides affordable and impactful online
+                        education that empowers individuals to be job-ready and thrive in today's competitive job
+                        market.</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <section class="ftco-section ftco-no-pt ftc-no-pb">
+        <div class="container">
+            <div class="row d-flex ss-flex">
+                <div class="col-md-5 order-md-last wrap-about wrap-about  d-flex align-items-stretch">
+                    <div class="img" style="background-image: url(images/about.jpg); border"></div>
+                </div>
+                <div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
+                    <h2 class="mb-4">Our Mission</h2>
+                    <p>At VidyaBridge, our mission is to enhance the employability of India's youth by providing
+                        practical and accessible education in key skills. We are dedicated to significantly enhancing
+                        the employability of India’s youth through practical and accessible education in essential
+                        skills.Our meticulously crafted programs aim to seamlessly connect academic learning with
+                        real-world applications, placing a strong emphasis on hands-on experience through internships,
+                        training, and engaging projects.Our commitment goes beyond just teaching; we seek to inspire
+                        young minds, foster creativity, and encourage lifelong learning, enabling them to navigate their
+                        career paths confidently and successfully.</p>
                 </div>
             </div>
         </div>
@@ -1455,7 +1753,7 @@
                 stroke="#F96D00" />
         </svg></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -1472,7 +1770,37 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
+    <script>
 
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.youtub-video-slide');
+        const carousel = document.getElementById('youtub-carousel');
+        const dots = document.querySelectorAll('.youtub-dot');
+
+        function showSlide(index) {
+            if (index >= 0 && index < slides.length) {
+                carousel.scrollTo({
+                    left: slides[index].offsetLeft,
+                    behavior: 'smooth'
+                });
+                currentIndex = index;
+                updateDots();
+            }
+        }
+
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function autoSlide() {
+            showSlide((currentIndex + 1) % slides.length);
+        }
+
+        setInterval(autoSlide, 3000); // Auto-slide every 3 seconds
+
+    </script>
 </body>
 
 </html>
